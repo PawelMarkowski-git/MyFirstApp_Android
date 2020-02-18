@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyFirstApp</string>
+    <string name="myFirstApp_Menu">MyFirstApp Menu</string>
+    <string name="add_two_numbers">Dodawanie dwóch liczb</string>
+    <string name="stop_watch">Stoper</string>
+    <string name="quadratic_function">Funkcja kwadratowa</string>
+    <string name="button_add">Sumuj</string>
+    <string name="must_be_something">Wpisz wartość</string>
+    <string name="maximum_number_of_characters">Maksymalna ilość znaków</string>
+    <string name="stop_watch_button">Uruchom stoper</string>
+    <string name="end_time">Koniec czasu!!!</string>
+
+</resources>
