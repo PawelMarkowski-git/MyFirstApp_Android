@@ -33,10 +33,10 @@
     <Button
         android:id="@+id/Stop_watch"
         android:layout_width="300dp"
-        android:layout_gravity="center"
-        android:background="@drawable/roundedbutton"
         android:layout_height="80dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/roundedbutton"
         android:text="@string/stop_watch" />
 
     <Button

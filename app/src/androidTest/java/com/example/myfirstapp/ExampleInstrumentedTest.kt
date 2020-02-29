@@ -91,4 +91,18 @@ class ExampleInstrumentedTest {
 
     }
 
+    @Test
+    fun StopWatchBackToMainActivity(){
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Stop_watch)).perform(click())
+        Espresso.pressBack()
+        onView(withId(R.id.Stop_watch)).perform(click())
+        onView(withId(R.id.value_stop_watch)).perform(typeText("13"), closeSoftKeyboard())
+        Espresso.pressBack()
+        onView(withId(R.id.Stop_watch)).perform(click())
+        onView(withId(R.id.value_stop_watch)).check(matches(withText("")))
+
+    }
+
 }
