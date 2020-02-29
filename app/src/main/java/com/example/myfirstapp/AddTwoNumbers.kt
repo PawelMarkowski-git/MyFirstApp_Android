@@ -16,53 +16,6 @@ class AddTwoNumbers : AppCompatActivity() {
 
     var TAG: String = "AddTwoNumbers Activity"
 
-//    override fun onUserInteraction() {
-//        super.onUserInteraction()
-//
-//        if(value_a.isFocused) {
-//
-//                Log.i(TAG,"value_a = ${value_a.text}")
-//
-//            if (value_a.length() in 1..9){
-//
-//                message_value_a.visibility = TextView.INVISIBLE
-//
-//            }
-//
-//            if (value_a.length() == 10) {
-//
-//                message_value_a.setText(R.string.maximum_number_of_characters)
-//                message_value_a.visibility = TextView.VISIBLE
-//
-//                Log.i(TAG,"value_a, show message maximum_number_of_characters")
-//
-//            }
-//
-//        }
-//
-//        if(value_b.isFocused) {
-//
-//            Log.i(TAG,"value_b = ${value_b.text}")
-//
-//            if (value_b.length() in 1..9){
-//
-//                message_value_b.visibility = TextView.INVISIBLE
-//
-//            }
-//
-//            if (value_b.length() == 10) {
-//
-//                message_value_b.setText(R.string.maximum_number_of_characters)
-//                message_value_b.visibility = TextView.VISIBLE
-//
-//                Log.i(TAG,"value_a, show message maximum_number_of_characters")
-//
-//            }
-//
-//        }
-//
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_two_numbers)
