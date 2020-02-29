@@ -1,7 +1,9 @@
 package com.example.myfirstapp
 
+import android.content.Intent
 import android.service.autofill.Validators.not
 import android.view.View
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
@@ -66,6 +68,27 @@ class ExampleInstrumentedTest {
 
     }
 
+    @Test
+    fun addTwoNumbersBackToMainActivity() {
 
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Add_two_numbers)).perform(click())
+        Espresso.pressBack()
+        onView(withId(R.id.myFirstApp_Menu)).check(matches(withText(R.string.myFirstApp_Menu)))
+        onView(withId(R.id.Add_two_numbers)).perform(click())
+        onView(withId(R.id.value_a)).perform(typeText("123"), closeSoftKeyboard())
+        Espresso.pressBack()
+        onView(withId(R.id.Add_two_numbers)).perform(click())
+        onView(withId(R.id.value_a)).check(matches(withText("")))
+        Espresso.pressBack()
+        onView(withId(R.id.Add_two_numbers)).perform(click())
+        onView(withId(R.id.value_a)).perform(typeText("213"))
+        onView(withId(R.id.value_b)).perform(typeText("123"), closeSoftKeyboard())
+        Espresso.pressBack()
+        onView(withId(R.id.Add_two_numbers)).perform(click())
+        onView(withId(R.id.value_a)).check(matches(withText("")))
+        onView(withId(R.id.value_b)).check(matches(withText("")))
+
+    }
 
 }
