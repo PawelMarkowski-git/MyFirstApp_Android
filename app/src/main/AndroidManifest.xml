@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StopWatch"></activity>
+        <activity android:name=".StopWatch"
+                  android:parentActivityName=".MainActivity"
+                  android:label="StopWatch"></activity>
         <activity android:name=".AddTwoNumbers"
                   android:parentActivityName=".MainActivity"
                   android:label="AddTwoNumbers"></activity>
