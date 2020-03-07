@@ -55,12 +55,12 @@
             android:textColor="#E0F7FA"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:maxLength="4"
+            android:maxLength="5"
             android:layout_marginLeft="10dp"
             android:inputType="numberDecimal" />
 
         <TextView
-            android:id="@+id/paramater_a_message"
+            android:id="@+id/parametr_a_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -94,12 +94,12 @@
             android:textColor="#E0F7FA"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:maxLength="4"
+            android:maxLength="5"
             android:layout_marginLeft="10dp"
             android:inputType="numberDecimal" />
 
         <TextView
-            android:id="@+id/paramater_b_message"
+            android:id="@+id/parametr_b_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -133,12 +133,12 @@
             android:textColor="#E0F7FA"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:maxLength="4"
+            android:maxLength="5"
             android:layout_marginLeft="10dp"
             android:inputType="numberDecimal" />
 
         <TextView
-            android:id="@+id/paramater_c_message"
+            android:id="@+id/parametr_c_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

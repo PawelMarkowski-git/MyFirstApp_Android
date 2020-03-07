@@ -11,5 +11,6 @@
     <string name="end_time">Koniec czasu!!!</string>
     <string name="quadratic_function_info">Podaj argumenty funkcji ax2 + bx + c</string>
     <string name="quadratic_function_resolve">Oblicz funkcję</string>
+    <string name="no_zero_value">Ten parametr nie może być równy 0</string>
 
 </resources>
