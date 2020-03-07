@@ -91,7 +91,7 @@ class ExampleInstrumentedTest {
 
     }
 
-    @Test 
+    @Test
     fun StopWatchBackToMainActivity(){
 
         ActivityTestRule(MainActivity::class.java).launchActivity(null)
@@ -102,6 +102,52 @@ class ExampleInstrumentedTest {
         Espresso.pressBack()
         onView(withId(R.id.Stop_watch)).perform(click())
         onView(withId(R.id.value_stop_watch)).check(matches(withText("")))
+
+    }
+
+    @Test
+    fun QuadraticFunctionBackToMainActivity(){
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        Espresso.pressBack()
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_input)).perform(typeText("1"))
+        onView(withId(R.id.parametr_b_input)).perform(typeText("2"))
+        onView(withId(R.id.parametr_c_input)).perform(typeText("3"))
+        Espresso.closeSoftKeyboard()
+        Espresso.pressBack()
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_input)).check(matches(withText("")))
+        onView(withId(R.id.parametr_b_input)).check(matches(withText("")))
+        onView(withId(R.id.parametr_c_input)).check(matches(withText("")))
+
+    }
+
+    @Test
+    fun QuadraticFunctionCheckValidationAddTextChangedListener() {
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_input)).perform(typeText("1"))
+        onView(withId(R.id.parametr_a_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.parametr_a_input)).perform(typeText("12345"))
+        onView(withId(R.id.parametr_a_message)).check(matches(withText(R.string.maximum_number_of_characters)))
+        onView(withId(R.id.parametr_a_input)).perform(replaceText("1234"))
+        onView(withId(R.id.parametr_a_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.parametr_b_input)).perform(typeText("1"))
+        onView(withId(R.id.parametr_b_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.parametr_b_input)).perform(typeText("12345"))
+        onView(withId(R.id.parametr_b_message)).check(matches(withText(R.string.maximum_number_of_characters)))
+        onView(withId(R.id.parametr_b_input)).perform(replaceText("1234"))
+        onView(withId(R.id.parametr_b_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.parametr_c_input)).perform(typeText("1"))
+        onView(withId(R.id.parametr_c_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.parametr_c_input)).perform(typeText("12345"))
+        onView(withId(R.id.parametr_c_message)).check(matches(withText(R.string.maximum_number_of_characters)))
+        onView(withId(R.id.parametr_c_input)).perform(replaceText("1234"))
+        onView(withId(R.id.parametr_c_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+
 
     }
 
