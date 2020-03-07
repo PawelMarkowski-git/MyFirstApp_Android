@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StopWatch"
-                  android:parentActivityName=".MainActivity"
-                  android:label="StopWatch"></activity>
-        <activity android:name=".AddTwoNumbers"
-                  android:parentActivityName=".MainActivity"
-                  android:label="AddTwoNumbers"></activity>
+        <activity android:name=".QuadraticFunction"
+            android:parentActivityName=".MainActivity"
+            android:label="QuadraticFunction"></activity>
+        <activity
+            android:name=".StopWatch"
+            android:label="StopWatch"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddTwoNumbers"
+            android:label="AddTwoNumbers"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

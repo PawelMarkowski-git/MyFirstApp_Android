@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009688"
+    tools:context=".QuadraticFunction">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/quadratic_function"
+        android:textColor="#FFEB3B"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/quadratic_function_info"
+        android:textColor="#FFEB3B"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <LinearLayout
+        android:id="@+id/parametr_a_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/info">
+
+        <TextView
+            android:id="@+id/parametr_a_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="a:"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp"
+            android:layout_marginLeft="15dp"/>
+
+        <EditText
+            android:id="@+id/parametr_a_input"
+            android:layout_width="100dp"
+            android:textColor="#E0F7FA"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxLength="4"
+            android:layout_marginLeft="10dp"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/paramater_a_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"
+            android:textColor="#FFEB3B"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parametr_b_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/parametr_a_LinearLayout">
+
+        <TextView
+            android:id="@+id/parametr_b_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="b:"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp"
+            android:layout_marginLeft="15dp"/>
+
+        <EditText
+            android:id="@+id/parametr_b_input"
+            android:layout_width="100dp"
+            android:textColor="#E0F7FA"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxLength="4"
+            android:layout_marginLeft="10dp"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/paramater_b_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFEB3B"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parametr_c_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/parametr_b_LinearLayout">
+
+        <TextView
+            android:id="@+id/parametr_c_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="c:"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp"
+            android:layout_marginLeft="15dp"/>
+
+        <EditText
+            android:id="@+id/parametr_c_input"
+            android:layout_width="100dp"
+            android:textColor="#E0F7FA"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxLength="4"
+            android:layout_marginLeft="10dp"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/paramater_c_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFEB3B"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/quadratic_function_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/quadratic_function_resolve"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parametr_c_LinearLayout"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

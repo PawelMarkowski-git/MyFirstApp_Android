@@ -41,11 +41,13 @@ class MainActivity : AppCompatActivity() {
 
         Quadratic_function.setOnClickListener {
 
-            Log.i(TAG,"Quadratic_function button")
+            Log.i(TAG,"Click on Quadratic_function button")
 
             var message =
                 Toast.makeText(applicationContext, R.string.quadratic_function, Toast.LENGTH_SHORT)
             message.show()
+
+            startActivity(Intent(applicationContext, QuadraticFunction::class.java))
 
         }
 

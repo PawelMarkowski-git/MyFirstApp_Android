@@ -9,5 +9,7 @@
     <string name="maximum_number_of_characters">Maksymalna ilość znaków</string>
     <string name="stop_watch_button">Uruchom stoper</string>
     <string name="end_time">Koniec czasu!!!</string>
+    <string name="quadratic_function_info">Podaj argumenty funkcji ax2 + bx + c</string>
+    <string name="quadratic_function_resolve">Oblicz funkcję</string>
 
 </resources>

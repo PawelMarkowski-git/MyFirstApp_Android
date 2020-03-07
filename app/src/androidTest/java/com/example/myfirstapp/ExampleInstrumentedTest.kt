@@ -91,7 +91,7 @@ class ExampleInstrumentedTest {
 
     }
 
-    @Test
+    @Test 
     fun StopWatchBackToMainActivity(){
 
         ActivityTestRule(MainActivity::class.java).launchActivity(null)
