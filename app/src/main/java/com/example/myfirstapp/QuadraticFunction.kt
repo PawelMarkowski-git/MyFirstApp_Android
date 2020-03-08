@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_two_numbers.*
@@ -22,11 +23,7 @@ class QuadraticFunction : AppCompatActivity() {
         setContentView(R.layout.activity_quadratic_function)
 
 
-
-
         Log.i(TAG, "Open QuadraticFunction form")
-
-
 
 
         parametr_a_input.addTextChangedListener(object : TextWatcher {
@@ -143,6 +140,7 @@ class QuadraticFunction : AppCompatActivity() {
                 parametr_a_message.setText(R.string.no_zero_value)
                 parametr_a_message.visibility = TextView.VISIBLE
                 result_quadratic_function.visibility = TextView.INVISIBLE
+                quadratic_function_resolve_for_arguments.visibility = Button.INVISIBLE
 
                 Log.i(TAG, "Show message no_zero_value in parametr_a_message")
 
@@ -153,6 +151,7 @@ class QuadraticFunction : AppCompatActivity() {
                 parametr_a_message.setText(R.string.must_be_something)
                 parametr_a_message.visibility = TextView.VISIBLE
                 result_quadratic_function.visibility = TextView.INVISIBLE
+                quadratic_function_resolve_for_arguments.visibility = Button.INVISIBLE
 
                 Log.i(TAG, "Show message must_be_something in parametr_a_message")
 
@@ -199,7 +198,7 @@ class QuadraticFunction : AppCompatActivity() {
                         x1 = (-b + sqrt(delta)) / (2 * a)
                         x2 = (-b - sqrt(delta)) / (2 * a)
 
-                        quadraticFunctionResult = "x1 = ${round(x1 * 100) / 100}" +
+                        quadraticFunctionResult = "Miejsca zerowe funkcji: \n\nx1 = ${round(x1 * 100) / 100}" +
                                 "\nx2 = ${round(x2 * 100) / 100}"
 
                     } else if (delta == 0.0) {
@@ -208,16 +207,16 @@ class QuadraticFunction : AppCompatActivity() {
 
                         if (x0 == -0.0) x0 = 0.0
 
-                        quadraticFunctionResult = "x0 = $x0"
+                        quadraticFunctionResult = "Miejsca zerowe funkcji: \n\nx0 = $x0"
 
                     }
 
 
                 result_quadratic_function.setText("Delta b2 - 4*a*c = ${round(delta * 100) / 100} \n" +
                         "\nFunkcja $a*x^2 + $b*x + $c $formFunction oraz $quantitiPlacesZero \n" +
-                        "\nMiejsca zerowe funkcji: \n" +
                         "\n$quadraticFunctionResult")
                 result_quadratic_function.visibility = TextView.VISIBLE
+                quadratic_function_resolve_for_arguments.visibility = Button.VISIBLE
 
             }
     }

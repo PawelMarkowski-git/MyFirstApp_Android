@@ -12,5 +12,6 @@
     <string name="quadratic_function_info">Podaj argumenty funkcji ax2 + bx + c</string>
     <string name="quadratic_function_resolve">Oblicz funkcję</string>
     <string name="no_zero_value">Ten parametr nie może być równy 0</string>
+    <string name="quadratic_function_resolve_for_arguments">Obliczanie wartości funkcji dla wybranego zakresu</string>
 
 </resources>
