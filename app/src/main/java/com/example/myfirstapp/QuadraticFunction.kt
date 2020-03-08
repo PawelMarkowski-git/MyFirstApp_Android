@@ -17,7 +17,13 @@ class QuadraticFunction : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quadratic_function)
 
+
+
+
         Log.i(TAG, "Open QuadraticFunction form")
+
+
+
 
         parametr_a_input.addTextChangedListener(object : TextWatcher {
 
@@ -119,6 +125,29 @@ class QuadraticFunction : AppCompatActivity() {
             }
 
         })
+
+
+
+
+
+
+        quadratic_function_button.setOnClickListener {
+
+            if(parametr_a_input.text.toString() == "0") {
+
+                parametr_a_message.setText(R.string.no_zero_value)
+                parametr_a_message.visibility = TextView.VISIBLE
+
+            }
+
+            else if (parametr_a_input.text.toString().isEmpty()) {
+
+                parametr_a_message.setText(R.string.must_be_something)
+                parametr_a_message.visibility = TextView.VISIBLE
+
+            }
+
+        }
 
     }
 }

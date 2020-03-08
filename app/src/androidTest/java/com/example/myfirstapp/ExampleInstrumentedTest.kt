@@ -151,4 +151,21 @@ class ExampleInstrumentedTest {
 
     }
 
+    @Test
+    fun QuadraticFunctionParametrANoEmptyOrZero() {
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.quadratic_function_button)).perform(click())
+        onView(withId(R.id.parametr_a_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.parametr_a_message)).check(matches(withText(R.string.must_be_something)))
+        onView(withId(R.id.parametr_a_input)).perform(replaceText("0"))
+        onView(withId(R.id.parametr_a_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.quadratic_function_button)).perform(click())
+        onView(withId(R.id.parametr_a_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.parametr_a_message)).check(matches(withText(R.string.no_zero_value)))
+
+    }
+
 }
