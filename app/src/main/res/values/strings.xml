@@ -13,5 +13,6 @@
     <string name="quadratic_function_resolve">Oblicz funkcję</string>
     <string name="no_zero_value">Ten parametr nie może być równy 0</string>
     <string name="quadratic_function_resolve_for_arguments">Obliczanie wartości funkcji dla wybranego zakresu</string>
+    <string name="micro_account_generator">Generator numeru mikrorachunku</string>
 
 </resources>
