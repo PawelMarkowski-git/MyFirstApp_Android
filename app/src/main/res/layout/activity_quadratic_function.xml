@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#009688"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context=".QuadraticFunction">
 
     <TextView
@@ -179,17 +185,20 @@
 
     <Button
         android:id="@+id/quadratic_function_resolve_for_arguments"
-        android:layout_width="wrap_content"
+        android:layout_width="405dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/roundedbutton"
         android:padding="5dp"
         android:text="@string/quadratic_function_resolve_for_arguments"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginTop="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_quadratic_function"
-        android:visibility="invisible"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/result_quadratic_function" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
 
