@@ -16,7 +16,7 @@ import kotlin.math.sqrt
 
 class QuadraticFunction : AppCompatActivity() {
 
-    var TAG: String = "AddTwoNumbers Activity"
+    var TAG: String = "QuadraticFunction Activity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
