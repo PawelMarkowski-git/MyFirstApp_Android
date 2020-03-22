@@ -184,7 +184,7 @@
         android:visibility="invisible"/>
 
     <Button
-        android:id="@+id/quadratic_function_resolve_for_arguments"
+        android:id="@+id/quadratic_function_resolve_for_arguments_button"
         android:layout_width="405dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

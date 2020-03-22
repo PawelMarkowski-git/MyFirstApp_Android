@@ -1,6 +1,6 @@
 package com.example.myfirstapp
 
-import android.inputmethodservice.Keyboard
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +9,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_add_two_numbers.*
 import kotlinx.android.synthetic.main.activity_quadratic_function.*
 import kotlin.math.pow
 import kotlin.math.round
@@ -141,7 +140,7 @@ class QuadraticFunction : AppCompatActivity() {
                 parametr_a_message.setText(R.string.no_zero_value)
                 parametr_a_message.visibility = TextView.VISIBLE
                 result_quadratic_function.visibility = TextView.INVISIBLE
-                quadratic_function_resolve_for_arguments.visibility = Button.INVISIBLE
+                quadratic_function_resolve_for_arguments_button.visibility = Button.INVISIBLE
 
                 Log.i(TAG, "Show message no_zero_value in parametr_a_message")
 
@@ -152,7 +151,7 @@ class QuadraticFunction : AppCompatActivity() {
                 parametr_a_message.setText(R.string.must_be_something)
                 parametr_a_message.visibility = TextView.VISIBLE
                 result_quadratic_function.visibility = TextView.INVISIBLE
-                quadratic_function_resolve_for_arguments.visibility = Button.INVISIBLE
+                quadratic_function_resolve_for_arguments_button.visibility = Button.INVISIBLE
 
                 Log.i(TAG, "Show message must_be_something in parametr_a_message")
 
@@ -217,9 +216,27 @@ class QuadraticFunction : AppCompatActivity() {
                         "\nFunkcja $a*x^2 + $b*x + $c $formFunction oraz $quantitiPlacesZero \n" +
                         "\n$quadraticFunctionResult")
                 result_quadratic_function.visibility = TextView.VISIBLE
-                quadratic_function_resolve_for_arguments.visibility = Button.VISIBLE
+                quadratic_function_resolve_for_arguments_button.visibility = Button.VISIBLE
+
+
+
+                quadratic_function_resolve_for_arguments_button.setOnClickListener {
+
+                    Log.i(TAG, "Click on quadratic_function_resolve_for_arguments_button")
+
+                    var message =
+                        Toast.makeText(applicationContext, R.string.quadratic_function_resolve_for_arguments, Toast.LENGTH_SHORT)
+                    message.show()
+
+                    val parametersOfQuadraticFunction: DoubleArray = doubleArrayOf(a,b,c)
+
+                    startActivity(Intent(applicationContext, CalculationQudraticFunction::class.java).putExtra("parametersOfQuadraticFunction", parametersOfQuadraticFunction))
+
+                }
 
             }
+
+
     }
 
         }
