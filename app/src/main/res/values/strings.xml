@@ -17,5 +17,9 @@
     <string name="quadratic_function_firstValue">Zakres od</string>
     <string name="quadratic_function_endValue">Zakres do</string>
     <string name="quadratic_function_stepFun">Krok</string>
+    <string name="calculation_quadratic_function_resolve">Oblicz wartości</string>
+    <string name="value_can_not_be_greater_than">Wartość nie może być większa niż</string>
+    <string name="value_can_not_be_less_than">Wartość nie może być mniejsza niż</string>
+    <string name="step_can_not_be_greater_than_disparity_endValue_and_firstValue">Krok nie może być większy niż różnica wartości do i od</string>
 
 </resources>

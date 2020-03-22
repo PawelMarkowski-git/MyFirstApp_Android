@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#009688"
@@ -9,17 +10,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConstrainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:textAlignment="center"
+            android:paddingRight="10dp"
             android:text="@string/quadratic_function_resolve_for_arguments"
+            android:textAlignment="center"
             android:textColor="#FFEB3B"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -32,53 +33,53 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textAlignment="center"
             android:textColor="#FFEB3B"
             android:textSize="14sp"
-            android:paddingRight="15dp"
-            android:paddingLeft="15dp"
-            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"/>
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <LinearLayout
             android:id="@+id/firstValue_LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:orientation="horizontal"
             android:focusableInTouchMode="true"
+            android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/info">
 
             <TextView
                 android:id="@+id/firstValue_name"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="@string/quadratic_function_firstValue"
                 android:textColor="#FFEB3B"
-                android:textSize="18sp"
-                android:layout_marginLeft="5dp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/firstValue_input"
                 android:layout_width="100dp"
-                android:textColor="#E0F7FA"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:maxLength="5"
                 android:layout_marginLeft="10dp"
-                android:inputType="numberDecimal|numberSigned" />
+                android:ems="10"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="5"
+                android:textColor="#E0F7FA" />
 
             <TextView
                 android:id="@+id/firstValue_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:visibility="invisible"
+                android:layout_weight="1"
+                android:text="TextView"
                 android:textColor="#FFEB3B"
                 android:textStyle="bold"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,31 +94,31 @@
                 android:id="@+id/endValue_name"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="@string/quadratic_function_endValue"
                 android:textColor="#FFEB3B"
-                android:textSize="18sp"
-                android:layout_marginLeft="5dp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/endValue_input"
                 android:layout_width="100dp"
-                android:textColor="#E0F7FA"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:maxLength="5"
                 android:layout_marginLeft="10dp"
-                android:inputType="numberDecimal|numberSigned" />
+                android:ems="10"
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLength="5"
+                android:textColor="#E0F7FA" />
 
             <TextView
                 android:id="@+id/endValue_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:visibility="invisible"
+                android:layout_weight="1"
+                android:text="TextView"
                 android:textColor="#FFEB3B"
                 android:textStyle="bold"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,32 +133,56 @@
                 android:id="@+id/stepFun_name"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="@string/quadratic_function_stepFun"
                 android:textColor="#FFEB3B"
-                android:textSize="18sp"
-                android:layout_marginLeft="5dp"/>
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/stepFun_input"
                 android:layout_width="100dp"
-                android:textColor="#E0F7FA"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:maxLength="5"
                 android:layout_marginLeft="10dp"
-                android:inputType="numberDecimal|numberSigned" />
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:maxLength="5"
+                android:textColor="#E0F7FA" />
 
             <TextView
                 android:id="@+id/stepFun_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:visibility="invisible"
+                android:layout_weight="1"
+                android:text="TextView"
                 android:textColor="#FFEB3B"
                 android:textStyle="bold"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:visibility="invisible" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/calculation_quadratic_function_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/roundedbutton"
+            android:padding="15dp"
+            android:text="@string/calculation_quadratic_function_resolve"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stepFun_LinearLayout" />
+
+        <TextView
+            android:id="@+id/calculation_quadratic_function_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:visibility="invisible"
+            android:textColor="#FFEB3B"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/calculation_quadratic_function_button" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
