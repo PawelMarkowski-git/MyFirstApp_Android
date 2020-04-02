@@ -25,7 +25,6 @@ class QuadraticFunction : AppCompatActivity() {
 
         Log.i(TAG, "Open QuadraticFunction form")
 
-
         parametr_a_input.addTextChangedListener(object : TextWatcher {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
