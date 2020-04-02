@@ -168,4 +168,117 @@ class ExampleInstrumentedTest {
 
     }
 
+    @Test
+    fun QuadraticFunctionForArgumentsOpenForm() {
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_input)).perform(typeText("-1"))
+        onView(withId(R.id.parametr_b_input)).perform(typeText("3.2"))
+        onView(withId(R.id.parametr_c_input)).perform(typeText("10.23"))
+        onView(withId(R.id.quadratic_function_button)).perform(click())
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.result_quadratic_function)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.quadratic_function_resolve_for_arguments_button)).check(matches(
+            withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.quadratic_function_resolve_for_arguments_button)).perform(click())
+        onView(withId(R.id.title)).check(matches(withText(R.string.quadratic_function_resolve_for_arguments)))
+
+    }
+
+    @Test
+    fun QuadraticFunctionForArgumentsBack () {
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_input)).perform(typeText("-1"))
+        onView(withId(R.id.parametr_b_input)).perform(typeText("3.2"))
+        onView(withId(R.id.parametr_c_input)).perform(typeText("10.23"))
+        onView(withId(R.id.quadratic_function_button)).perform(click())
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.result_quadratic_function)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.quadratic_function_resolve_for_arguments_button)).check(matches(
+            withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.quadratic_function_resolve_for_arguments_button)).perform(click())
+        onView(withId(R.id.title)).check(matches(withText(R.string.quadratic_function_resolve_for_arguments)))
+        Espresso.pressBack()
+        onView(withId(R.id.title)).check(matches(withText(R.string.quadratic_function)))
+
+    }
+
+    @Test
+    fun  QuadraticFunctionForArgumentsCheckValueInput(){
+
+        ActivityTestRule(MainActivity::class.java).launchActivity(null)
+        onView(withId(R.id.Quadratic_function)).perform(click())
+        onView(withId(R.id.parametr_a_input)).perform(typeText("-1"))
+        onView(withId(R.id.parametr_b_input)).perform(typeText("3.2"))
+        onView(withId(R.id.parametr_c_input)).perform(typeText("10.23"))
+        onView(withId(R.id.quadratic_function_button)).perform(click())
+        Espresso.closeSoftKeyboard()
+
+        onView(withId(R.id.result_quadratic_function)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.quadratic_function_resolve_for_arguments_button)).check(matches(
+            withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.quadratic_function_resolve_for_arguments_button)).perform(click())
+
+        onView(withId(R.id.title)).check(matches(withText(R.string.quadratic_function_resolve_for_arguments)))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.calculation_quadratic_function_button)).perform(click())
+
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE))).check(
+            matches(withText(R.string.must_be_something)))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE))).check(
+            matches(withText(R.string.must_be_something)))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE))).check(
+            matches(withText(R.string.must_be_something)))
+
+        onView(withId(R.id.firstValue_input)).perform(typeText("1.2"))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.calculation_quadratic_function_button)).perform(click())
+
+        onView(withId(R.id.endValue_input)).perform(typeText("1.2"))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.calculation_quadratic_function_button)).perform(click())
+
+        onView(withId(R.id.stepFun_input)).perform(typeText("1.2"))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+
+        onView(withId(R.id.firstValue_input)).perform(clearText())
+        onView(withId(R.id.endValue_input)).perform(clearText())
+        onView(withId(R.id.stepFun_input)).perform(clearText())
+
+        onView(withId(R.id.firstValue_input)).perform(typeText("1234"))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.firstValue_input)).perform(typeText("12345"))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE))).check(
+            matches(withText(R.string.maximum_number_of_characters)))
+        onView(withId(R.id.firstValue_input)).perform(replaceText("1234"))
+        onView(withId(R.id.firstValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+
+        onView(withId(R.id.endValue_input)).perform(typeText("1234"))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.endValue_input)).perform(typeText("12345"))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE))).check(
+            matches(withText(R.string.maximum_number_of_characters)))
+        onView(withId(R.id.endValue_input)).perform(replaceText("1234"))
+        onView(withId(R.id.endValue_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+
+        onView(withId(R.id.stepFun_input)).perform(typeText("1234"))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+        onView(withId(R.id.stepFun_input)).perform(typeText("12345"))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.VISIBLE))).check(
+            matches(withText(R.string.maximum_number_of_characters)))
+        onView(withId(R.id.stepFun_input)).perform(replaceText("1234"))
+        onView(withId(R.id.stepFun_message)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+    }
+
 }
