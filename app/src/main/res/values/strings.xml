@@ -21,5 +21,9 @@
     <string name="value_can_not_be_greater_than">Wartość nie może być większa niż</string>
     <string name="value_can_not_be_less_than">Wartość nie może być mniejsza niż</string>
     <string name="step_can_not_be_greater_than_disparity_endValue_and_firstValue">Krok nie może być większy niż różnica wartości do i od</string>
+    <string name="info_about_parameters_for_micro_account">Wprowadź NIP lub PESEL</string>
+    <string name="PESEL">PESEL</string>
+    <string name="NIP">NIP</string>
+    <string name="show_micro_account_result">Wygeneruj numer rachunku</string>
 
 </resources>

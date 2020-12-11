@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#009688"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/micro_account_generator"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/info_about_parameters_for_micro_account"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_PESEL_NIP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:checkedButton="@id/PESEL_option" >
+
+            <RadioButton
+                android:id="@+id/PESEL_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/PESEL"
+                android:textSize="18sp"
+                android:textColor="#FFEB3B"/>
+
+            <RadioButton
+                android:id="@+id/NIP_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/NIP"
+                android:textSize="18sp"
+                android:textColor="#FFEB3B"/>
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/edit_text_input_PESEL_or_NIP"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="number|textFilter"
+            android:maxLength="11"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/message_PESEL_or_NIP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/Micro_account_generator_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/show_micro_account_result"
+            android:background="@drawable/roundedbutton"
+            android:layout_marginTop="50dp"
+            />
+
+</LinearLayout>
+
+
+    </ScrollView>

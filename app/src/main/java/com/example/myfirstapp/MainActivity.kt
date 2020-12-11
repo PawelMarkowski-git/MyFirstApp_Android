@@ -51,5 +51,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        Micro_account_generator.setOnClickListener {
+
+            Log.i(TAG,"Click on  Micro_account_generator button")
+
+            var message =
+                Toast.makeText(applicationContext, R.string.micro_account_generator, Toast.LENGTH_SHORT)
+            message.show()
+
+            startActivity(Intent(applicationContext, MicroAccount::class.java))
+
+        }
+
     }
 }
