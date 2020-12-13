@@ -23,21 +23,8 @@ class MicroAccount : AppCompatActivity() {
             "edit_text_input_PESEL_or_NIP", 11,TAG)
 
 
-//        ReactionOnChecked().changeHintOnCheckedRadioButton(edit_text_input_PESEL_or_NIP,
-//            radio_group_PESEL_NIP, "PESEL")
-
-
-        edit_text_input_PESEL_or_NIP.setHint("PESEL")
-
-        radio_group_PESEL_NIP.setOnCheckedChangeListener { group, checkedId ->
-
-            edit_text_input_PESEL_or_NIP.setText("")
-
-            var hint = findViewById<RadioButton>(radio_group_PESEL_NIP.checkedRadioButtonId).text
-
-            edit_text_input_PESEL_or_NIP.setHint(hint)
-
-        }
+        ReactionOnChecked().changeHintOnCheckedRadioButton(edit_text_input_PESEL_or_NIP,
+            radio_group_PESEL_NIP, "PESEL", this)
 
 
         Micro_account_generator_button.setOnClickListener{
