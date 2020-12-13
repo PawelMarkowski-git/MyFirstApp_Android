@@ -19,7 +19,7 @@ class ReactionOnChecked() {
 
             editText.setText("")
 
-            var hint = radioGroup.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text
+            var hint = radioGroup.findViewById<RadioButton>(checkedId).text
 
             editText.setHint(hint)
 
