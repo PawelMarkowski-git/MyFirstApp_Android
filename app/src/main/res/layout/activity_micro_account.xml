@@ -62,6 +62,7 @@
 
         <EditText
             android:id="@+id/edit_text_input_PESEL_or_NIP"
+            android:transitionName="edit_text_input_PESEL_or_NIP"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:inputType="number|textFilter"

@@ -23,8 +23,8 @@ class AddTwoNumbers : AppCompatActivity() {
 
         Log.i(TAG,"Open AddTwoNumbers form")
 
-        CheckInputValue().maxCharacters(value_a, message_value_a,"value a" , 10, TAG)
-        CheckInputValue().maxCharacters(value_b, message_value_b,"value b", 10, TAG)
+        CheckInputValue().maxCharacters(value_a, message_value_a, 10, TAG)
+        CheckInputValue().maxCharacters(value_b, message_value_b, 10, TAG)
 
 
         button_add.setOnClickListener {

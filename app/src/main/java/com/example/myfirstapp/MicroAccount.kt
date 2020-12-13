@@ -19,8 +19,7 @@ class MicroAccount : AppCompatActivity() {
         Log.i(TAG,"Open MicroAccount Activity")
 
 
-        CheckInputValue().maxCharacters(edit_text_input_PESEL_or_NIP, message_PESEL_or_NIP,
-            "edit_text_input_PESEL_or_NIP", 11,TAG)
+        CheckInputValue().maxCharacters(edit_text_input_PESEL_or_NIP, message_PESEL_or_NIP, 11,TAG)
 
 
         ReactionOnChecked().changeHintOnCheckedRadioButton(edit_text_input_PESEL_or_NIP,

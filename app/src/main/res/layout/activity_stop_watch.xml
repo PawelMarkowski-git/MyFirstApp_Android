@@ -26,6 +26,7 @@
 
     <EditText
         android:id="@+id/value_stop_watch"
+        android:transitionName="value_stop_watch"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -44,8 +45,7 @@
         android:textColor="#FFEB3B"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:visibility="invisible"
-        android:text="Texttextetxt"/>
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/stop_watch_button"

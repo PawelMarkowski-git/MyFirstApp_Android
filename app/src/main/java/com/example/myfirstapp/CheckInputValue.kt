@@ -10,8 +10,9 @@ import kotlinx.android.synthetic.main.activity_add_two_numbers.*
 
 class CheckInputValue {
 
-    fun maxCharacters (nameInput: EditText, nameMessageTextView: TextView,nameInputText:String,
-                       limit: Int, TAG: String) {
+    fun maxCharacters (nameInput: EditText, nameMessageTextView: TextView, limit: Int, TAG: String) {
+
+        var nameInputText: String = nameInput.transitionName
 
         nameInput.addTextChangedListener(object : TextWatcher {
 

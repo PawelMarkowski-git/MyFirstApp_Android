@@ -21,8 +21,7 @@ class StopWatch : AppCompatActivity() {
 
         Log.i(TAG, "Open StopWatch form")
 
-        CheckInputValue().maxCharacters(value_stop_watch, message_value_stop_watch,
-            "value_stop_watch", 3,TAG)
+        CheckInputValue().maxCharacters(value_stop_watch, message_value_stop_watch, 3,TAG)
 
         stop_watch_button.setOnClickListener {
 

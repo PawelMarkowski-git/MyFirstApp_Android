@@ -38,6 +38,7 @@
 
             <EditText
                 android:id="@+id/value_a"
+                android:transitionName="value_a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -52,6 +53,7 @@
 
             <EditText
                 android:id="@+id/value_b"
+                android:transitionName="value_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

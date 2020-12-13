@@ -57,6 +57,7 @@
 
         <EditText
             android:id="@+id/parametr_a_input"
+            android:transitionName="parametr_a_input"
             android:layout_width="100dp"
             android:textColor="#E0F7FA"
             android:layout_height="wrap_content"
@@ -96,6 +97,7 @@
 
         <EditText
             android:id="@+id/parametr_b_input"
+            android:transitionName="parametr_b_input"
             android:layout_width="100dp"
             android:textColor="#E0F7FA"
             android:layout_height="wrap_content"
@@ -135,6 +137,7 @@
 
         <EditText
             android:id="@+id/parametr_c_input"
+            android:transitionName="parametr_c_input"
             android:layout_width="100dp"
             android:textColor="#E0F7FA"
             android:layout_height="wrap_content"
