@@ -24,11 +24,11 @@ class CalculationQudraticFunction : AppCompatActivity() {
         if (intent.hasExtra("parametersOfQuadraticFunction")) {
 
             var parametersOfQuadraticFunction =
-                intent.getDoubleArrayExtra("parametersOfQuadraticFunction")
+            intent.getDoubleArrayExtra("parametersOfQuadraticFunction");
 
-            var a = parametersOfQuadraticFunction[0]
-            var b = parametersOfQuadraticFunction[1]
-            var c = parametersOfQuadraticFunction[2]
+            var a = parametersOfQuadraticFunction?.get(0)
+            var b = parametersOfQuadraticFunction?.get(1)
+            var c = parametersOfQuadraticFunction?.get(2)
 
             Log.i(
                 TAG,
@@ -214,7 +214,7 @@ class CalculationQudraticFunction : AppCompatActivity() {
                         firstValue_input.text.toString().toDouble(),
                         endValue_input.text.toString().toDouble(),
                         stepFun_input.text.toString().toDouble(),
-                        a, b, c)
+                        a.toString().toDouble(), b.toString().toDouble(), c.toString().toDouble())
 
                     calculation_quadratic_function_result.setText(calculationQudraticFunctionResult)
                     calculation_quadratic_function_result.visibility = TextView.VISIBLE

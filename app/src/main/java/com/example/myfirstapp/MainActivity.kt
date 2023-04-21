@@ -5,17 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.myfirstapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     var TAG: String = "MainActivity"
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        Add_two_numbers.setOnClickListener {
+        binding.AddTwoNumbers.setOnClickListener {
 
             Log.i(TAG,"Click on Add_two_numbers button")
 
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        Stop_watch.setOnClickListener {
+        binding.StopWatch.setOnClickListener {
 
             Log.i(TAG,"Click on Stop_watch button")
 
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        Quadratic_function.setOnClickListener {
+        binding.QuadraticFunction.setOnClickListener {
 
             Log.i(TAG,"Click on Quadratic_function button")
 
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        Micro_account_generator.setOnClickListener {
+        binding.MicroAccountGenerator.setOnClickListener {
 
             Log.i(TAG,"Click on  Micro_account_generator button")
 
