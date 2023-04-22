@@ -33,6 +33,7 @@ class ExampleInstrumentedTest {
     fun addTwoNumbers() {
 
         ActivityTestRule(MainActivity::class.java).launchActivity(null)
+
         onView(withId(R.id.Add_two_numbers)).perform(click())
         onView(withId(R.id.value_a)).perform(typeText("12"))
         onView(withId(R.id.value_a)).check(matches(withText("12")))

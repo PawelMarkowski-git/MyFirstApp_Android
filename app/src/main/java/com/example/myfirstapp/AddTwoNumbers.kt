@@ -10,50 +10,53 @@ import android.widget.TextView
 import android.widget.TextView.INVISIBLE
 import android.widget.TextView.VISIBLE
 import android.widget.Toast
+import com.example.myfirstapp.databinding.ActivityAddTwoNumbersBinding
 import kotlinx.android.synthetic.main.activity_add_two_numbers.*
 
 class AddTwoNumbers : AppCompatActivity() {
 
     var TAG: String = "AddTwoNumbers Activity"
+    private lateinit var binding: ActivityAddTwoNumbersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_two_numbers)
+        binding = ActivityAddTwoNumbersBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         Log.i(TAG,"Open AddTwoNumbers form")
 
-        CheckInputValue().maxCharacters(value_a, message_value_a, 10, TAG)
-        CheckInputValue().maxCharacters(value_b, message_value_b, 10, TAG)
+        CheckInputValue().maxCharacters(value_a, binding.messageValueA, 10, TAG)
+        CheckInputValue().maxCharacters(value_b, binding.messageValueB, 10, TAG)
 
 
-        button_add.setOnClickListener {
+        binding.buttonAdd.setOnClickListener {
 
             Log.i(TAG,"Click on button_add")
 
 
-            var a = value_a.text.toString()
-            var b = value_b.text.toString()
+            var a = binding.valueA.text.toString()
+            var b = binding.valueB.text.toString()
 
 
-            CheckInputValue().checkEmptyInput(a,message_value_a,"Message value a",TAG)
-            CheckInputValue().checkEmptyInput(b,message_value_b,"Message value b",TAG)
+            CheckInputValue().checkEmptyInput(a,binding.messageValueA,"Message value a",TAG)
+            CheckInputValue().checkEmptyInput(b,binding.messageValueB,"Message value b",TAG)
 
 
 
-            if(CheckInputValue().checkEmptyInput(a,message_value_a,"Message value a",TAG) &&
-                CheckInputValue().checkEmptyInput(b,message_value_b,"Message value b",TAG)) {
+            if(CheckInputValue().checkEmptyInput(a,binding.messageValueA,"Message value a",TAG) &&
+                CheckInputValue().checkEmptyInput(b,binding.messageValueB,"Message value b",TAG)) {
 
 
                     var c = a.toDouble() + b.toDouble()
 
-                    result.setText(c.toString())
-                    result.visibility = VISIBLE
+                    binding.result.setText(c.toString())
+                    binding.result.visibility = VISIBLE
 
                     Log.i(TAG,"Show a result = $c")
 
-                    message_value_a.visibility = TextView.INVISIBLE
-                    message_value_b.visibility = TextView.INVISIBLE
+                    binding.messageValueA.visibility = TextView.INVISIBLE
+                    binding.messageValueB.visibility = TextView.INVISIBLE
 
             }
 

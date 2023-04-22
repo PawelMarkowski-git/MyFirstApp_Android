@@ -32,7 +32,9 @@
             android:label="MicroAccount"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
