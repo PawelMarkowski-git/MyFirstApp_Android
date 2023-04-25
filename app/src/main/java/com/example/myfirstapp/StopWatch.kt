@@ -8,41 +8,44 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.TextView
+import com.example.myfirstapp.databinding.ActivityStopWatchBinding
 import kotlinx.android.synthetic.main.activity_stop_watch.*
 
 class StopWatch : AppCompatActivity() {
 
-    private var TAG: String = "StopWatch Activity"
+    private val TAG: String = "StopWatch Activity"
     private lateinit var countDownTimer: CountDownTimer
+    private lateinit var binding: ActivityStopWatchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stop_watch)
+        binding = ActivityStopWatchBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Log.i(TAG, "Open StopWatch form")
 
-        CheckInputValue().maxCharacters(value_stop_watch, message_value_stop_watch, 3,TAG)
+        CheckInputValue().maxCharacters(binding.valueStopWatch, binding.messageValueStopWatch, 3,TAG)
 
-        stop_watch_button.setOnClickListener {
+        binding.stopWatchButton.setOnClickListener {
 
-            var time = value_stop_watch.text.toString()
+            var time = binding.valueStopWatch.text.toString()
 
-            CheckInputValue().checkEmptyInput(time, message_value_stop_watch,
+            CheckInputValue().checkEmptyInput(time, binding.messageValueStopWatch,
                 "value_stop_watch",TAG)
 
 
             if(time.isNotEmpty()) {
 
-                result_stop_watch.visibility = TextView.VISIBLE
+                binding.resultStopWatch.visibility = TextView.VISIBLE
 
                 countDownTimer = object : CountDownTimer(time.toLong() * 1000, 1000) {
                     override fun onFinish() {
-                        result_stop_watch.setText(R.string.end_time)
+                        binding.resultStopWatch.setText(R.string.end_time)
                         Log.i(TAG, "result_stop_watch, show message end_time")
                     }
 
                     override fun onTick(millisUntilFinished: Long) {
-                        result_stop_watch.text = (millisUntilFinished / 1000).toString()
+                        binding.resultStopWatch.text = (millisUntilFinished / 1000).toString()
                         Log.i(TAG, (millisUntilFinished / 1000).toString())
                     }
                 }.start()

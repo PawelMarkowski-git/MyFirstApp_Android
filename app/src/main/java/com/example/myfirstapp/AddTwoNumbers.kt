@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_add_two_numbers.*
 
 class AddTwoNumbers : AppCompatActivity() {
 
-    var TAG: String = "AddTwoNumbers Activity"
+    private val TAG: String = "AddTwoNumbers Activity"
     private lateinit var binding: ActivityAddTwoNumbersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
