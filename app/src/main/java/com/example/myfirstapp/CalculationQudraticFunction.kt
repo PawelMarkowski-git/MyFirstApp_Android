@@ -10,16 +10,19 @@ import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myfirstapp.R.*
+import com.example.myfirstapp.databinding.ActivityCalculationQudraticFunctionBinding
 
 import kotlinx.android.synthetic.main.activity_calculation_qudratic_function.*
 
 class CalculationQudraticFunction : AppCompatActivity() {
 
     var TAG: String = "CalculationQudraticFunction Activity"
+    private lateinit var binding: ActivityCalculationQudraticFunctionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_calculation_qudratic_function)
+        binding = ActivityCalculationQudraticFunctionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         if (intent.hasExtra("parametersOfQuadraticFunction")) {
 
@@ -35,11 +38,11 @@ class CalculationQudraticFunction : AppCompatActivity() {
                 "Open CalculationQudraticFunction Activity with parameters: a= $a, b= $b and c= $c"
             )
 
-            info.setText("Aby obliczyć wartości funkcji $a*x^2 + $b*x + $c dla wybranego zakresu argumentów uzupełnij poniższe pola:")
+            binding.info.setText("Aby obliczyć wartości funkcji $a*x^2 + $b*x + $c dla wybranego zakresu argumentów uzupełnij poniższe pola:")
 
 
 
-            firstValue_input.addTextChangedListener(object : TextWatcher {
+            binding.firstValueInput.addTextChangedListener(object : TextWatcher {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
@@ -53,7 +56,7 @@ class CalculationQudraticFunction : AppCompatActivity() {
 
                     } else if (firstValue_input.length() < 5) {
 
-                        firstValue_message.visibility = TextView.INVISIBLE
+                        binding.firstValueMessage.visibility = TextView.INVISIBLE
 
                     }
 
@@ -73,21 +76,21 @@ class CalculationQudraticFunction : AppCompatActivity() {
 
             })
 
-            endValue_input.addTextChangedListener(object : TextWatcher {
+            binding.endValueInput.addTextChangedListener(object : TextWatcher {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
-                    Log.i(TAG, "endValue = ${endValue_input.text}")
+                    Log.i(TAG, "endValue = ${binding.endValueInput.text}")
 
-                    if (endValue_input.length() == 5) {
+                    if (binding.endValueInput.length() == 5) {
 
-                        endValue_message.setText(string.maximum_number_of_characters)
-                        endValue_message.visibility = TextView.VISIBLE
+                        binding.endValueMessage.setText(string.maximum_number_of_characters)
+                        binding.endValueMessage.visibility = TextView.VISIBLE
                         Log.i(TAG, "endValue, show message maximum_number_of_characters")
 
-                    } else if (endValue_input.length() < 5) {
+                    } else if (binding.endValueInput.length() < 5) {
 
-                        endValue_message.visibility = TextView.INVISIBLE
+                        binding.endValueMessage.visibility = TextView.INVISIBLE
 
                     }
 
@@ -107,21 +110,21 @@ class CalculationQudraticFunction : AppCompatActivity() {
 
             })
 
-            stepFun_input.addTextChangedListener(object : TextWatcher {
+            binding.stepFunInput.addTextChangedListener(object : TextWatcher {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
-                    Log.i(TAG, "stepFun = ${stepFun_input.text}")
+                    Log.i(TAG, "stepFun = ${binding.stepFunInput.text}")
 
-                    if (stepFun_input.length() == 5) {
+                    if (binding.stepFunInput.length() == 5) {
 
-                        stepFun_message.setText(string.maximum_number_of_characters)
-                        stepFun_message.visibility = TextView.VISIBLE
+                        binding.stepFunMessage.setText(string.maximum_number_of_characters)
+                        binding.stepFunMessage.visibility = TextView.VISIBLE
                         Log.i(TAG, "stepFun, show message maximum_number_of_characters")
 
-                    } else if (stepFun_input.length() < 5) {
+                    } else if (binding.stepFunInput.length() < 5) {
 
-                        stepFun_message.visibility = TextView.INVISIBLE
+                        binding.stepFunMessage.visibility = TextView.INVISIBLE
 
                     }
 
@@ -142,82 +145,82 @@ class CalculationQudraticFunction : AppCompatActivity() {
             })
 
 
-            calculation_quadratic_function_button.setOnClickListener {
+            binding.calculationQuadraticFunctionButton.setOnClickListener {
 
-                calculation_quadratic_function_result.visibility = TextView.INVISIBLE
+                binding.calculationQuadraticFunctionResult.visibility = TextView.INVISIBLE
 
-                if (firstValue_input.text.isEmpty() || endValue_input.text.isEmpty() || stepFun_input.text.isEmpty()) {
+                if (binding.firstValueInput.text.isEmpty() || binding.endValueInput.text.isEmpty() || binding.stepFunInput.text.isEmpty()) {
 
 
-                    if (firstValue_input.text.isEmpty()) {
+                    if (binding.firstValueInput.text.isEmpty()) {
 
-                        firstValue_message.setText(string.must_be_something)
-                        firstValue_message.visibility = TextView.VISIBLE
+                        binding.firstValueMessage.setText(string.must_be_something)
+                        binding.firstValueMessage.visibility = TextView.VISIBLE
                         Log.i(TAG, "firstValue, show message must_be_something")
 
                     }
 
-                    if (endValue_input.text.isEmpty()) {
+                    if (binding.endValueInput.text.isEmpty()) {
 
-                        endValue_message.setText(string.must_be_something)
-                        endValue_message.visibility = TextView.VISIBLE
+                        binding.endValueMessage.setText(string.must_be_something)
+                        binding.endValueMessage.visibility = TextView.VISIBLE
                         Log.i(TAG, "endValue, show message must_be_something")
 
                     }
 
-                    if (stepFun_input.text.isEmpty()) {
+                    if (binding.stepFunInput.text.isEmpty()) {
 
-                        stepFun_message.setText(string.must_be_something)
-                        stepFun_message.visibility = TextView.VISIBLE
+                        binding.stepFunMessage.setText(string.must_be_something)
+                        binding.stepFunMessage.visibility = TextView.VISIBLE
                         Log.i(TAG, "stepFun, show message must_be_something")
 
                     }
 
-                } else if (firstValue_input.text.toString().toDouble() > endValue_input.text.toString().toDouble()) {
+                } else if (binding.firstValueInput.text.toString().toDouble() > binding.endValueInput.text.toString().toDouble()) {
 
-                    firstValue_message.setText(
+                    binding.firstValueMessage.setText(
                         "${getString(R.string.value_can_not_be_greater_than)} ${getString(
                             R.string.quadratic_function_endValue
                         )}"
                     )
-                    firstValue_message.visibility = TextView.VISIBLE
+                    binding.firstValueMessage.visibility = TextView.VISIBLE
                     Log.i(
                         TAG,
                         "firstValue, show message value_can_not_be_greater_than quadratic_function_endValue"
                     )
-                    endValue_message.setText(
+                    binding.endValueMessage.setText(
                         "${getString(R.string.value_can_not_be_less_than)} ${getString(
                             R.string.quadratic_function_firstValue
                         )}"
                     )
-                    endValue_message.visibility = TextView.VISIBLE
+                    binding.endValueMessage.visibility = TextView.VISIBLE
                     Log.i(
                         TAG,
                         "endValue, show message value_can_not_be_less_than quadratic_function_firstValue"
                     )
-                    stepFun_message.visibility = TextView.INVISIBLE
+                    binding.stepFunMessage.visibility = TextView.INVISIBLE
 
-                } else if (stepFun_input.text.toString().toDouble() >
-                    (endValue_input.text.toString().toDouble() - firstValue_input.text.toString().toDouble())
+                } else if (binding.stepFunInput.text.toString().toDouble() >
+                    (binding.endValueInput.text.toString().toDouble() - binding.firstValueInput.text.toString().toDouble())
                 ) {
 
-                    stepFun_message.setText(R.string.step_can_not_be_greater_than_disparity_endValue_and_firstValue)
-                    stepFun_message.visibility = TextView.VISIBLE
+                    binding.stepFunMessage.setText(R.string.step_can_not_be_greater_than_disparity_endValue_and_firstValue)
+                    binding.stepFunMessage.visibility = TextView.VISIBLE
                     Log.i(
-                        TAG,
+                        TAG
                         "stepFun, show message step_can_not_be_greater_than_disparity_endValue_and_firstValue"
                     )
 
                 } else {
 
                     var calculationQudraticFunctionResult: String= calculationQudraticFunctionResult(
-                        firstValue_input.text.toString().toDouble(),
-                        endValue_input.text.toString().toDouble(),
-                        stepFun_input.text.toString().toDouble(),
+                        binding.firstValueInput.text.toString().toDouble(),
+                        binding.endValueInput.text.toString().toDouble(),
+                        binding.stepFunInput.text.toString().toDouble(),
                         a.toString().toDouble(), b.toString().toDouble(), c.toString().toDouble())
 
-                    calculation_quadratic_function_result.setText(calculationQudraticFunctionResult)
-                    calculation_quadratic_function_result.visibility = TextView.VISIBLE
+                    binding.calculationQuadraticFunctionResult.setText(calculationQudraticFunctionResult)
+                    binding.calculationQuadraticFunctionResult.visibility = TextView.VISIBLE
 
                 }
 
