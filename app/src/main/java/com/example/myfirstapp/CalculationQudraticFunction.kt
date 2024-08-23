@@ -207,7 +207,7 @@ class CalculationQudraticFunction : AppCompatActivity() {
                     binding.stepFunMessage.setText(R.string.step_can_not_be_greater_than_disparity_endValue_and_firstValue)
                     binding.stepFunMessage.visibility = TextView.VISIBLE
                     Log.i(
-                        TAG
+                        TAG,
                         "stepFun, show message step_can_not_be_greater_than_disparity_endValue_and_firstValue"
                     )
 
