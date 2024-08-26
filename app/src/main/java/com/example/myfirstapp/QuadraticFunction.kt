@@ -20,18 +20,34 @@ class QuadraticFunction : AppCompatActivity() {
 
     var TAG: String = "QuadraticFunction Activity"
     private lateinit var binding: ActivityQuadraticFunctionBinding
+    private val saveInstanceStateResultText = "saveIstanceStateresultText"
+    private val savedInstanceStateTextViewResult = "savedInstanceStateTextViewResult"
+
+    private var resultText: String = ""
+    private var stateTextViewResult: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuadraticFunctionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+            if (savedInstanceState != null){
+                stateTextViewResult = savedInstanceState.getBoolean(savedInstanceStateTextViewResult)
+                resultText = savedInstanceState.getString(saveInstanceStateResultText)!!
+            }
+
+            if (stateTextViewResult) {
+                binding.resultQuadraticFunction.visibility = TextView.VISIBLE
+                binding.resultQuadraticFunction.setText(resultText)
+                binding.quadraticFunctionResolveForArgumentsButton.visibility = Button.VISIBLE
+            }
+
 
         Log.i(TAG, "Open QuadraticFunction form")
 
-        CheckInputValue().maxCharacters(binding.parametrAInput,binding.parametrAMessage,5,TAG)
-        CheckInputValue().maxCharacters(binding.parametrBInput,binding.parametrBMessage,5,TAG)
-        CheckInputValue().maxCharacters(binding.parametrCInput,binding.parametrCMessage,5,TAG)
+        CheckInputValue().maxCharacters(binding.parametrAInput, binding.parametrAMessage, 5, TAG)
+        CheckInputValue().maxCharacters(binding.parametrBInput, binding.parametrBMessage, 5, TAG)
+        CheckInputValue().maxCharacters(binding.parametrCInput, binding.parametrCMessage, 5, TAG)
 
 
         binding.quadraticFunctionButton.setOnClickListener {
@@ -39,7 +55,7 @@ class QuadraticFunction : AppCompatActivity() {
             Log.i(TAG, "Click on quadratic_function_button")
 
 
-            if(binding.parametrAInput.text.toString() == "0") {
+            if (binding.parametrAInput.text.toString() == "0") {
 
                 binding.parametrAMessage.setText(R.string.no_zero_value)
                 binding.parametrAMessage.visibility = TextView.VISIBLE
@@ -48,9 +64,7 @@ class QuadraticFunction : AppCompatActivity() {
 
                 Log.i(TAG, "Show message no_zero_value in parametr_a_message")
 
-            }
-
-            else if (binding.parametrAInput.text.toString().isEmpty()) {
+            } else if (binding.parametrAInput.text.toString().isEmpty()) {
 
                 binding.parametrAMessage.setText(R.string.must_be_something)
                 binding.parametrAMessage.visibility = TextView.VISIBLE
@@ -59,9 +73,8 @@ class QuadraticFunction : AppCompatActivity() {
 
                 Log.i(TAG, "Show message must_be_something in parametr_a_message")
 
-            }
+            } else {
 
-            else {
 
                 var a: Double
                 var b: Double
@@ -74,15 +87,17 @@ class QuadraticFunction : AppCompatActivity() {
                 var x2: Double
                 var quadraticFunctionResult: String = ""
 
+                stateTextViewResult = true
 
-                    a = binding.parametrAInput.text.toString().toDouble()
+                a = binding.parametrAInput.text.toString().toDouble()
 
-                    if (binding.parametrBInput.text.isNotEmpty()) b = binding.parametrBInput.text.toString().toDouble()
-                    else b = 0.0
+                if (binding.parametrBInput.text.isNotEmpty()) b =
+                    binding.parametrBInput.text.toString().toDouble()
+                else b = 0.0
 
-                    if (binding.parametrCInput.text.isNotEmpty()) c = binding.parametrCInput.text.toString().toDouble()
-                    else c = 0.0
-
+                if (binding.parametrCInput.text.isNotEmpty()) c =
+                    binding.parametrCInput.text.toString().toDouble()
+                else c = 0.0
 
 
                 delta = b.pow(2) - 4 * a * c
@@ -97,28 +112,31 @@ class QuadraticFunction : AppCompatActivity() {
                 else if (delta == 0.0) quantitiPlacesZero = "ma tylko jedno miejsce zerowe"
 
 
-                    if (delta > 0.0) {
+                if (delta > 0.0) {
 
-                        x1 = (-b + sqrt(delta)) / (2 * a)
-                        x2 = (-b - sqrt(delta)) / (2 * a)
+                    x1 = (-b + sqrt(delta)) / (2 * a)
+                    x2 = (-b - sqrt(delta)) / (2 * a)
 
-                        quadraticFunctionResult = "Miejsca zerowe funkcji: \n\nx1 = ${round(x1 * 100) / 100}" +
+                    quadraticFunctionResult =
+                        "Miejsca zerowe funkcji: \n\nx1 = ${round(x1 * 100) / 100}" +
                                 "\nx2 = ${round(x2 * 100) / 100}"
 
-                    } else if (delta == 0.0) {
+                } else if (delta == 0.0) {
 
-                        x0 = -b / 2 * a
+                    x0 = -b / 2 * a
 
-                        if (x0 == -0.0) x0 = 0.0
+                    if (x0 == -0.0) x0 = 0.0
 
-                        quadraticFunctionResult = "Miejsca zerowe funkcji: \n\nx0 = $x0"
+                    quadraticFunctionResult = "Miejsca zerowe funkcji: \n\nx0 = $x0"
 
-                    }
+                }
 
-
-                binding.resultQuadraticFunction.setText("Delta b2 - 4*a*c = ${round(delta * 100) / 100} \n" +
+                resultText = "Delta b2 - 4*a*c = ${round(delta * 100) / 100} \n" +
                         "\nFunkcja $a*x^2 + $b*x + $c $formFunction oraz $quantitiPlacesZero \n" +
-                        "\n$quadraticFunctionResult")
+                        "\n$quadraticFunctionResult"
+
+
+                binding.resultQuadraticFunction.setText(resultText)
                 binding.resultQuadraticFunction.visibility = TextView.VISIBLE
                 binding.quadraticFunctionResolveForArgumentsButton.visibility = Button.VISIBLE
 
@@ -129,20 +147,34 @@ class QuadraticFunction : AppCompatActivity() {
                     Log.i(TAG, "Click on quadratic_function_resolve_for_arguments_button")
 
                     var message =
-                        Toast.makeText(applicationContext, R.string.quadratic_function_resolve_for_arguments, Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            applicationContext,
+                            R.string.quadratic_function_resolve_for_arguments,
+                            Toast.LENGTH_SHORT
+                        )
                     message.show()
 
-                    val parametersOfQuadraticFunction: DoubleArray = doubleArrayOf(a,b,c)
+                    val parametersOfQuadraticFunction: DoubleArray = doubleArrayOf(a, b, c)
 
-                    startActivity(Intent(applicationContext, CalculationQudraticFunction::class.java).putExtra("parametersOfQuadraticFunction", parametersOfQuadraticFunction))
+                    startActivity(
+                        Intent(
+                            applicationContext,
+                            CalculationQudraticFunction::class.java
+                        ).putExtra("parametersOfQuadraticFunction", parametersOfQuadraticFunction)
+                    )
 
                 }
-
             }
-
-
-    }
 
         }
 
+
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(saveInstanceStateResultText, resultText)
+        outState.putBoolean(savedInstanceStateTextViewResult, stateTextViewResult)
+    }
+
+}
