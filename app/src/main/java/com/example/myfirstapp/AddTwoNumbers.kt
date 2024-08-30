@@ -15,16 +15,30 @@ import kotlinx.android.synthetic.main.activity_add_two_numbers.*
 
 class AddTwoNumbers : AppCompatActivity() {
 
+    private val saveInstanteStateTextViewResult = "saveInstanteStateTextViewResult"
+    private val saveInstanteStateResult = "saveInstanteStateResult"
+
     private val TAG: String = "AddTwoNumbers Activity"
     private lateinit var binding: ActivityAddTwoNumbersBinding
+    private var c: Double = 0.0
+    private var visiblityResult = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTwoNumbersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         Log.i(TAG,"Open AddTwoNumbers form")
+
+        if(savedInstanceState != null){
+            visiblityResult = savedInstanceState.getBoolean(saveInstanteStateTextViewResult)
+            c = savedInstanceState.getDouble(saveInstanteStateResult)
+        }
+
+        if(visiblityResult){
+            binding.result.visibility = VISIBLE
+            binding.result.setText(c.toString())
+        }
 
         CheckInputValue().maxCharacters(value_a, binding.messageValueA, 10, TAG)
         CheckInputValue().maxCharacters(value_b, binding.messageValueB, 10, TAG)
@@ -48,10 +62,12 @@ class AddTwoNumbers : AppCompatActivity() {
                 CheckInputValue().checkEmptyInput(b,binding.messageValueB,"Message value b",TAG)) {
 
 
-                    var c = a.toDouble() + b.toDouble()
+                   c = a.toDouble() + b.toDouble()
 
                     binding.result.setText(c.toString())
                     binding.result.visibility = VISIBLE
+
+                    visiblityResult = true
 
                     Log.i(TAG,"Show a result = $c")
 
@@ -63,5 +79,11 @@ class AddTwoNumbers : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(saveInstanteStateTextViewResult, visiblityResult)
+        outState.putDouble(saveInstanteStateResult, c)
     }
 }

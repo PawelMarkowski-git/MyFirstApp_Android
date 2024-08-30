@@ -18,13 +18,20 @@ import kotlin.math.sqrt
 
 class QuadraticFunction : AppCompatActivity() {
 
-    var TAG: String = "QuadraticFunction Activity"
     private lateinit var binding: ActivityQuadraticFunctionBinding
     private val saveInstanceStateResultText = "saveIstanceStateresultText"
     private val savedInstanceStateTextViewResult = "savedInstanceStateTextViewResult"
+    private val savedInstanceStateParametersA = "savedInstanceStateParametersA"
+    private val savedInstanceStateParametersB = "savedInstanceStateParametersB"
+    private val savedInstanceStateParametersC = "savedInstanceStateParametersC"
 
+    private var TAG: String = "QuadraticFunction Activity"
+    private var parametersOfQuadraticFunction: DoubleArray = doubleArrayOf(0.0, 0.0, 0.0)
     private var resultText: String = ""
     private var stateTextViewResult: Boolean = false
+    private var a: Double = 0.0
+    private var b: Double = 0.0
+    private var c: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +41,28 @@ class QuadraticFunction : AppCompatActivity() {
             if (savedInstanceState != null){
                 stateTextViewResult = savedInstanceState.getBoolean(savedInstanceStateTextViewResult)
                 resultText = savedInstanceState.getString(saveInstanceStateResultText)!!
+                a = savedInstanceState.getDouble(savedInstanceStateParametersA)
+                b = savedInstanceState.getDouble(savedInstanceStateParametersB)
+                c = savedInstanceState.getDouble(savedInstanceStateParametersC)
             }
 
             if (stateTextViewResult) {
                 binding.resultQuadraticFunction.visibility = TextView.VISIBLE
                 binding.resultQuadraticFunction.setText(resultText)
                 binding.quadraticFunctionResolveForArgumentsButton.visibility = Button.VISIBLE
+
+                parametersOfQuadraticFunction = doubleArrayOf(a, b, c)
+
+               binding.quadraticFunctionResolveForArgumentsButton.setOnClickListener {
+
+                   startActivity(
+                       Intent(
+                           applicationContext,
+                           CalculationQudraticFunction::class.java
+                       ).putExtra("parametersOfQuadraticFunction", parametersOfQuadraticFunction)
+                   )
+               }
+
             }
 
 
@@ -75,10 +98,6 @@ class QuadraticFunction : AppCompatActivity() {
 
             } else {
 
-
-                var a: Double
-                var b: Double
-                var c: Double
                 var delta: Double
                 var formFunction: String = ""
                 var quantitiPlacesZero: String = ""
@@ -154,7 +173,7 @@ class QuadraticFunction : AppCompatActivity() {
                         )
                     message.show()
 
-                    val parametersOfQuadraticFunction: DoubleArray = doubleArrayOf(a, b, c)
+                    parametersOfQuadraticFunction = doubleArrayOf(a, b, c)
 
                     startActivity(
                         Intent(
@@ -175,6 +194,9 @@ class QuadraticFunction : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         outState.putString(saveInstanceStateResultText, resultText)
         outState.putBoolean(savedInstanceStateTextViewResult, stateTextViewResult)
+        outState.putDouble(savedInstanceStateParametersA, a)
+        outState.putDouble(savedInstanceStateParametersB, b)
+        outState.putDouble(savedInstanceStateParametersC, c)
     }
 
 }
